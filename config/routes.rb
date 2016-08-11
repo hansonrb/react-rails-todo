@@ -54,5 +54,7 @@ ReactRailsTodo::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :tasks
+  resources :tasks do
+    post :done
+  end
 end

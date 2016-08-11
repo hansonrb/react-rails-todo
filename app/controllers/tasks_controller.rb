@@ -1,28 +1,37 @@
 class TasksController < ApplicationController
+	skip_before_filter :verify_authenticity_token
+
 	def index
-		@task = Task.all
-		# respond_with Task.all
+		@tasks = Task.all
 	end
 
 	def create
-		respond_with Task.create( task_params )
+		render json: Task.create( task_params ), status: 200
 	end
 
 	def show
-		respond_with Task.find(params[:id])
+		render json: Task.find(params[:id]), status: 200
 	end
 
 	def update
-		respond_with Task.update(params[:id], task_params)
+		render json: Task.update(params[:id], task_params)
 	end
 
 	def destroy
-		respond_with Task.destroy(params[:id])
+		render json: Task.destroy(params[:id]), status: 200
+	end
+
+	def done 
+		task = Task.find(params[:task_id]);
+		task.is_active = false;
+		task.save();
+		render json: task
 	end
 
 private
   	def task_params
 		params.require(:task).permit(
+			:task_id,
 			:id,
 			:name,
 			:is_active
