@@ -27,8 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'react-rails', '~> 1.0'
+#gem 'react-rails', '~> 1.0'
 gem 'bootstrap-sass'
+gem "react_on_rails", "~> 5"
 
 gem 'byebug', group: :development
 
