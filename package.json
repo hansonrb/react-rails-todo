@@ -1,21 +1,16 @@
 {
-  "name": "react-rails-todo",
-  "version": "0.0.0",
-  "description": "== README",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "name": "react-webpack-rails-tutorial",
+  "version": "0.0.1",
+  "engines": {
+    "node": "5.10.0",
+    "npm": "3.5.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hansonrb/react-rails-todo.git"
-  },
-  "author": "",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/hansonrb/react-rails-todo/issues"
+    "postinstall": "cd client && npm install",
+    "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
+    "build:production:client": "(cd client && npm run build:production:client --silent)",
+    "build:client": "(cd client && npm run build:client --silent",
+    "build:dev:client": "(cd client && npm run build:dev:client --silent)",
+    "test": "rspec"
   }
 }
